@@ -1,11 +1,31 @@
 #variables:
 
-names=$@
+re='^[0-9]'
+args=$@
 
-for i in ${names[@]}
-do
-	echo Variable $i is: $i
-	
-done
+if [[ ! $@ =~ $re ]]; then
+        echo Args are not numbers
+	echo They are:
 
-echo variable 1 is: $1 and variable 3 is: $3
+	for i in ${args[@]}
+	do
+		echo $i
+	done
+else
+	echo Args are all numbers 
+	echo and I will increment them
+        echo Now our args are:
+
+        for i in ${args[@]}
+	do 
+		echo $i
+        done
+
+        echo After incrementation:
+
+	for i in ${args[@]}
+	do
+		i=$((i+1))
+		echo $i
+	done
+fi
