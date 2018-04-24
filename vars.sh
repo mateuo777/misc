@@ -1,9 +1,16 @@
 #definition of variables:
 
-re='^[0-9]'
+re1='[0-9]'
+re2='[a-z]'
+re3='[A-Z]'
 args=$@
 
-if [[ ! $@ =~ $re ]]; then
+if [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]] || [[ $@ =~ $re3 ]]; then
+
+	printf "You are not allowed to mix the arg types, enter either only integers or strings\n"
+	exit 1
+
+elif [[ ! $@ =~ $re1 ]]; then
 	printf "\nArgs are not numbers."
 	printf " They are:\n\n"
 
