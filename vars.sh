@@ -1,31 +1,32 @@
-#variables:
+#definition of variables:
 
 re='^[0-9]'
 args=$@
 
 if [[ ! $@ =~ $re ]]; then
-        echo Args are not numbers
-	echo They are:
+	printf "\nArgs are not numbers."
+	printf " They are:\n\n"
 
 	for i in ${args[@]}
 	do
 		echo $i
 	done
+	printf "\n"
 else
-	echo Args are all numbers 
-	echo and I will increment them
-        echo Now our args are:
+	printf "\nArgs are all numbers and I will increment them by 1.\n"
+	printf "Now our args are:\n\n"
 
         for i in ${args[@]}
 	do 
 		echo $i
         done
 
-        echo After incrementation:
+	printf "\nAfter incrementation:\n\n"
 
 	for i in ${args[@]}
 	do
 		i=$((i+1))
 		echo $i
 	done
+	printf "\n"
 fi
