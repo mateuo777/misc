@@ -7,6 +7,11 @@ args=$@
 
 error() {
 	printf "You are not allowed to mix the arg types, enter either only integers or strings\n"
+	exit 2
+}
+
+warning() {
+	printf "You have to enter at least one argument\n"
 	exit 1
 }
 
@@ -27,6 +32,9 @@ iter2() {
 
 if [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]] || [[ $@ =~ $re3 ]]; then
 	error
+
+elif [[ -z $@ ]]; then
+	warning
 
 elif [[ ! $@ =~ $re1 ]]; then
 	printf "\nArgs are not numbers."
