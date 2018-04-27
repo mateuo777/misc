@@ -16,17 +16,17 @@ warning() {
 }
 
 iter() {
-	for i in ${args[@]}
+	for arg in ${args[@]}
 	do
-		echo $i
+		echo $arg
 	done
 }
 
 iter2() {
-	for i in ${args[@]}
+	for arg in ${args[@]}
 	do
-		i=$((i+1))
-		echo $i
+		arg=$((arg+1))
+		echo $arg
 	done
 }
 
