@@ -3,10 +3,16 @@
 re1='[0-9]'
 re2='[a-z]'
 re3='[A-Z]'
+re4='[^A-Z ^a-z ^0-9]'
 args=$@
 
 error() {
 	printf "You are not allowed to mix the arg types, enter either only integers or strings\n"
+	exit 2
+}
+
+error2() {
+	printf "Please enter only integers or letters\n"
 	exit 2
 }
 
@@ -28,8 +34,13 @@ iter2() {
 	done
 }
 
-if [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]] || [[ $@ =~ $re3 ]]; then
+if [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]]; then
 	error
+elif [[ $@ =~ $re1 ]] && [[ $@ =~ $re3 ]]; then
+	error
+
+elif [[ $@ =~ $re4 ]]; then
+	error2
 
 elif [[ -z $@ ]]; then
 	warning
