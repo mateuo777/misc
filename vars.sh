@@ -36,6 +36,7 @@ iter2() {
 
 if [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]]; then
 	error
+
 elif [[ $@ =~ $re1 ]] && [[ $@ =~ $re3 ]]; then
 	error
 
