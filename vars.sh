@@ -34,14 +34,14 @@ iter2() {
 	done
 }
 
-if [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]]; then
+if [[ $@ =~ $re4 ]]; then
+	error2
+
+elif [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]]; then
 	error
 
 elif [[ $@ =~ $re1 ]] && [[ $@ =~ $re3 ]]; then
 	error
-
-elif [[ $@ =~ $re4 ]]; then
-	error2
 
 elif [[ -z $@ ]]; then
 	warning
