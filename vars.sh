@@ -29,7 +29,7 @@ iter() {
 
 iter2() {
 	for arg in ${args[@]}; do
-		arg=$((arg+1))
+		arg=$((arg+$value))
 		echo $arg
 	done
 }
@@ -52,7 +52,8 @@ elif [[ ! $@ =~ $re1 ]]; then
         iter
 	printf "\n"
 else
-	printf "\nArgs are all numbers and I will increment them by 1.\n"
+	printf "\nArgs are all numbers and I will increment them.\n"
+	read -p "Enter now a value, that will be used to increment the args (from 1 to 9): " -n 1 -t 10 -e value
 	printf "Now our args are:\n\n"
         iter
 	printf "\nAfter incrementation:\n\n"
