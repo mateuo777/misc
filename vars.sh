@@ -43,7 +43,7 @@ elif [[ $@ =~ $re1 ]] && [[ $@ =~ $re2 ]]; then
 elif [[ $@ =~ $re1 ]] && [[ $@ =~ $re3 ]]; then
 	error
 
-elif [[ -z $@ ]]; then
+elif [[ $# -eq 0 ]]; then
 	warning
 
 elif [[ ! $@ =~ $re1 ]]; then
