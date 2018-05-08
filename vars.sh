@@ -54,7 +54,7 @@ elif [[ ! $@ =~ $re1 ]]; then
 else
 	printf "\nYou've entered $(echo $#) args and the args are all numbers and I will increment them.\n\n"
 	read -p "Enter now a value, that will be used to increment the args (from 1 to 9): " -n 1 -t 10 -e value
-	printf "Now our args are:\n\n"
+	printf "\nNow our args are:\n\n"
         iter
 	printf "\nAfter incrementation:\n\n"
         iter2
