@@ -10,6 +10,14 @@ if [[ -d users ]]; then
     fi
 fi
 
+if [[ -d nodes ]]; then
+	slave_nodes=$(ls nodes/*/)
+    
+    if [[ -n $slave_nodes ]]; then
+    	git add $slave_nodes
+    fi
+fi
+
 to_remove=$(git status | grep "deleted" | awk '{print $2}')
 
 if [[ -n $to_remove ]]; then
